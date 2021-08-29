@@ -64,6 +64,11 @@ def url_redirect(id):
         return redirect(url_for('index'))
 
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 @app.route('/stats')
 def stats():
     conn = get_db_connection()
