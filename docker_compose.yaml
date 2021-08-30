@@ -9,7 +9,7 @@ services:
             - db
     ports: "40001:40001"
 
-db:
+ db:
     image: mysql:8.0.26
     ports:
         - "32000:3306"
