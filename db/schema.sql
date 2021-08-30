@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS urlshortener;
+
 SET GLOBAL sql_mode = '';
 
 USE urlshortener;

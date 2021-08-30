@@ -11,12 +11,20 @@ cors = CORS(app)
 
 def get_db_connection():
     # Set up MySql connection
-    conn = pymysql.connect(host=app.config['DB_HOST'],
-                           user=app.config['DB_USER'],
-                           passwd=app.config['DB_PASS'],
-                           database="urlshortener",
+    # conn = pymysql.connect(host=app.config['DB_HOST'],
+    #                        user=app.config['DB_USER'],
+    #                        passwd=app.config['DB_PASS'],
+    #                        database='urlshortener',
+    #                        charset='utf8mb4',
+    #                        cursorclass=pymysql.cursors.DictCursor)
+
+    conn = pymysql.connect(host='db',
+                           user='root',
+                           passwd='root',
+                           database='urlshortener',
                            charset='utf8mb4',
-                           cursorclass=pymysql.cursors.DictCursor)
+                           cursorclass=pymysql.cursors.DictCursor,
+                           port=3306)
     return conn
 
 
