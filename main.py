@@ -1,4 +1,5 @@
 import sqlite3
+import init_db
 from hashids import Hashids
 from flask import Flask, render_template, request, flash, redirect, url_for
 
