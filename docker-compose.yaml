@@ -7,6 +7,7 @@ services:
 
  db:
     image: mysql:8.0.26
+    restart: always
     ports:
         - "32000:3306"
     environment:
