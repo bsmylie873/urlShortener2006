@@ -3,13 +3,14 @@ services:
         build: ./app
         links:
             - db
-    ports: "40001:40001"
+    ports:
+        - 40001:40001
 
 db:
     image: mysql:8.0.26
     restart: always
     ports:
-        - "32000:3306"
+        - 32000:3306
     environment:
         MYSQL_ROOT_PASSWORD: root_vegetable
     volumes:
