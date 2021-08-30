@@ -1,12 +1,16 @@
 import mysql.connector as mysql
 from mysql.connector import Error
 
+from main import app
+
+app.config.from_pyfile('config.py')
+
 # First, set up the database itself.
 try:
     db = mysql.connect(
-        host="localhost",
-        user="root",
-        passwd="password"
+        host=app.config['DB_HOST'],
+        user=app.config['DB_USER'],
+        passwd=app.config['DB_PASS']
     )
 
     with open('db.sql', 'r') as f:
@@ -21,10 +25,10 @@ except Error as e:
 # Now, set up table inside urlshortener database.
 try:
     db = mysql.connect(
-        host="localhost",
-        user="root",
+        host=app.config['DB_HOST'],
+        user=app.config['DB_USER'],
         database="urlshortener",
-        passwd="password"
+        passwd=app.config['DB_PASS']
     )
     print("Connection successful!")
 

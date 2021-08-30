@@ -1,33 +1,24 @@
 import pymysql
 from hashids import Hashids
 from flask import Flask, render_template, request, flash, redirect, url_for
+from flask_cors import CORS, cross_origin
 
+app = Flask(__name__)
+# Load config file.
+app.config.from_pyfile('config.py')
+cors = CORS(app)
 
-# def get_db_connection():
-#     conn = sqlite3.connect('database.db')
-#     conn.row_factory = sqlite3.Row
-#     return conn
-#
-#
-# app = Flask(__name__)
-# app.config.from_pyfile('config.py')
-#
-# hashids = Hashids(min_length=8, salt=app.config['SECRET_KEY'])
 
 def get_db_connection():
     # Set up MySql connection
-    conn = pymysql.connect(user="root",
-                           password="password",
-                           host="localhost",
+    conn = pymysql.connect(host=app.config['DB_HOST'],
+                           user=app.config['DB_USER'],
+                           passwd=app.config['DB_PASS'],
                            database="urlshortener",
                            charset='utf8mb4',
                            cursorclass=pymysql.cursors.DictCursor)
     return conn
 
-
-app = Flask(__name__)
-# Load config file.
-app.config.from_pyfile('config.py')
 
 # Define hash length, plus hidden salt.
 hashids = Hashids(min_length=8, salt=app.config['SECRET_KEY'])
@@ -50,7 +41,7 @@ def index():
 
         # Add new url to local variable and table.
         cursor.execute('INSERT INTO urls (`original_url`) VALUES (%s)',
-                                  (url,))
+                       (url,))
         # Commit to database and close connections.
         conn.commit()
         cursor.close()
