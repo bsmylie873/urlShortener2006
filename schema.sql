@@ -1,8 +1,11 @@
-DROP TABLE IF EXISTS urls;
+SET GLOBAL sql_mode = '';
 
-CREATE TABLE urls (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    original_url TEXT NOT NULL,
-    clicks INTEGER NOT NULL DEFAULT 0
-);
+USE urlshortener;
+
+CREATE TABLE IF NOT EXISTS`urls` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `created` TIMESTAMP(2) NOT NULL,
+  `original_url` TEXT(100) NOT NULL,
+  `clicks` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`))
