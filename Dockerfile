@@ -3,8 +3,7 @@ EXPOSE 40001
 
 WORKDIR /app
 
-COPY . /app
+COPY ../../Desktop /app
 RUN pip install -r requirements.txt
-
 
 CMD ["python", "app/app.py"]
