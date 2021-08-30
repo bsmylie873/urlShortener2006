@@ -29,7 +29,7 @@ def get_db_connection():
 
 
 # Define hash length, plus hidden salt.
-hashids = Hashids(min_length=8, salt=app.config['SECRET_KEY'])
+hashids = Hashids(min_length=8, salt="b'g\x84\xd3\xff\xb9\xa0\x06fC\x06z4'")
 
 
 @app.route('/', methods=('GET', 'POST'))
@@ -146,4 +146,4 @@ def stats():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=40001, debug=True)
+    app.run(host='127.0.0.1', port=40001, debug=True)
