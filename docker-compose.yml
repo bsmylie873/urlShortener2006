@@ -3,8 +3,8 @@ services:
         build: ./app
         links:
             - db
-    ports:
-        - 40001:40001
+        ports:
+            - 40001:40001
 
 db:
     image: mysql:8.0.26
