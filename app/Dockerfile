@@ -5,5 +5,5 @@ ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=127.0.0.1
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
-COPY . /app
+COPY ./app /app
 CMD flask run
