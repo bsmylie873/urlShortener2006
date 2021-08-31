@@ -1,6 +1,6 @@
 version: "2"
 services:
-    app:
+    web:
         build: ./app
         env_file:
             -   '.env'
