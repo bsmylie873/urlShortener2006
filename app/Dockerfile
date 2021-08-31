@@ -7,4 +7,4 @@ ENV FLASK_RUN_HOST=0.0.0.0
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
 COPY . /app
-CMD ["pytho3", "app.py"]
+CMD ["python3", "app.py"]
