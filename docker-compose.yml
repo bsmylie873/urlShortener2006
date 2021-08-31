@@ -15,6 +15,9 @@ services:
 
         command: flask run --host=127.0.0.1 --port=40001
 
+        volumes:
+            - .:/code
+
     db:
         image: mysql:8.0.26
         ports:
