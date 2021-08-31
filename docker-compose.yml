@@ -2,6 +2,8 @@ version: "2"
 services:
     app:
         build: ./app
+        env_file:
+            -   '.env'
         links:
             - db
         ports:
@@ -14,4 +16,4 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: root
         volumes:
-            - urlShortener2006/db:/docker-entrypoint-initdb.d/:ro/
+            - ./db:/docker-entrypoint-initdb.d/:ro/
