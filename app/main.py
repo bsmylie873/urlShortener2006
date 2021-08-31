@@ -1,5 +1,4 @@
 import pymysql
-import redis
 from hashids import Hashids
 from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_cors import CORS
@@ -20,9 +19,8 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 # Load config file.
-#app.config = cfg
+# app.config = cfg
 cors = CORS(app)
-
 
 
 def get_db_connection():
