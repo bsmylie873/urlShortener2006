@@ -2,6 +2,7 @@ version: "2"
 services:
     app:
         build: ./app
+        command: python main.py run -h 127.0.0.1
         env_file:
             -   '.env'
         links:

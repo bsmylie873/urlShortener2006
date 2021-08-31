@@ -1,7 +1,7 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.7-alpine3.7
 EXPOSE 40001
-COPY . /app
 WORKDIR /app
+COPY requirements.txt /app
 RUN pip install -r requirements.txt
-ENTRYPOINT ["./main.py"]
-CMD ["main.py"]
+COPY app.py /app
+CMD ["python","main.py"]
